@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Validaion</title>
+    <script type="text/javascript">
+      function validate(){
+      //that will change the display style of the user data displayed as above.
+      document.getElementsByTagName("h1")[0].style.color = "red";
+      document.getElementsByTagName("h1")[0].style.fontSize = "large";
+      document.body.style.backgroundColor = "blue"
+
+       // set validate to true - flag
+       var valid =true;
+       var msge ="incomplete form, ";
+       // use if statements to check the data and set the message
+       if(document.getElementById("n").value == ""){
+         msge +=  "you need to fill in name. ";
+         valid = false;
+       }
+       if(document.getElementById("a").value == ""){
+         msge+= "you need to fill in the age.";
+         valid =false;
+       }
+       if(!valid){ //!valid means not true. same  as valid == false
+         document.getElementById("msge1").innerHTML=msge;
+       }
+       return valid;
+    }
+  </script>
+  </head>
+  <body>
+    <h1>Form</h1>
+    <form onsubmit="return validate()">
+       Name: <input type="text" id="n">
+       Age: <input type="number" id="a">
+       <input type="submit" value="submit Form">
+   </form>
+   <p id="msge1"></p>
+  </body>
+</html>
